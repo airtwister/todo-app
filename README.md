@@ -1,4 +1,4 @@
-# Задача: создать TODOS приложение на Angular 4 с использованием [Angular CLI](https://github.com/angular/angular-cli)
+# Задача: создать TODOS приложение на Angular 5 с использованием [Angular CLI](https://github.com/angular/angular-cli)
 ### Пример приложения: [ссылка](http://todomvc.com/examples/angular2/)
 #### Требования:
 - Создать Fork данного репозитория
