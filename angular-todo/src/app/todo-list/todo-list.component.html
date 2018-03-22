@@ -4,7 +4,7 @@
         <input class="new-todo" placeholder="What needs to be done?" autofocus="" #newtodo (keyup)="addTodo($event, newtodo)">
     </header>
     <section class="main" *ngIf="todoStore.todos.length > 0">
-        <input title="todo input" class="toggle-all" type="checkbox" *ngIf="todoStore.todos.length" #toggleall>
+        <input title="todo input" class="toggle-all" type="checkbox" *ngIf="todoStore.todos.length" #toggleall [checked]="todoStore.allCompleted()" (click)="todoStore.setAllTo(toggleall)">
         <ul class="todo-list">
             <li *ngFor="let todo of todoStore.todos" [class.completed]="todo.completed">
                 <div class="view">

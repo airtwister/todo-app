@@ -61,4 +61,13 @@ export class TodoStore {
         this.todos = this.get({completed: false});
         this._updateStore();
     }
+
+    allCompleted() {
+        return this.todos.length === this.getCompleted().length;
+    }
+
+    setAllTo(toggler) {
+        this.todos.forEach((t: Todo) => t.completed = toggler.checked);
+        this._updateStore();
+    }
 }
