@@ -44,4 +44,16 @@ export class TodoStore {
         }
         this._updateStore();
     }
+
+    get(state: {completed: Boolean}) {
+        return this.todos.filter((todo: Todo) => todo.completed === state.completed);
+    }
+
+    getRemaining() {
+        return this.get({completed: false});
+    }
+
+    getCompleted() {
+        return this.get({completed: true});
+    }
 }
