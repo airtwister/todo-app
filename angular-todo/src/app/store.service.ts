@@ -56,4 +56,9 @@ export class TodoStore {
     getCompleted() {
         return this.get({completed: true});
     }
+
+    removeCompleted() {
+        this.todos = this.get({completed: false});
+        this._updateStore();
+    }
 }
