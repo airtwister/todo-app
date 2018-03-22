@@ -3,6 +3,17 @@
         <h1>{{ title }}</h1>
         <input class="new-todo" placeholder="What needs to be done?" autofocus="" #newtodo (keyup)="addTodo($event, newtodo)">
     </header>
+    <section class="main" *ngIf="todoStore.todos.length > 0">
+        <input title="todo input" class="toggle-all" type="checkbox" *ngIf="todoStore.todos.length" #toggleall>
+        <ul class="todo-list">
+            <li *ngFor="let todo of todoStore.todos">
+                <div class="view">
+                    <input title="todo item" class="toggle" type="checkbox">
+                    <label>{{todo.title}}</label>
+                </div>
+            </li>
+        </ul>
+    </section>
     <footer class="footer">
     </footer>
 </section>
