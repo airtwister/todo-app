@@ -23,4 +23,15 @@ export class TodoStore {
         this.todos.push(new Todo(title));
         this._updateStore();
     }
+
+    toggleCompletion(uid: String) {
+        for (const todo of this.todos) {
+            if (todo.uid === uid) {
+                todo.completed = !todo.completed;
+                break;
+            }
+        }
+
+        this._updateStore();
+    }
 }

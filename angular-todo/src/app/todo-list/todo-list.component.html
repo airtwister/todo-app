@@ -6,9 +6,9 @@
     <section class="main" *ngIf="todoStore.todos.length > 0">
         <input title="todo input" class="toggle-all" type="checkbox" *ngIf="todoStore.todos.length" #toggleall>
         <ul class="todo-list">
-            <li *ngFor="let todo of todoStore.todos">
+            <li *ngFor="let todo of todoStore.todos" [class.completed]="todo.completed">
                 <div class="view">
-                    <input title="todo item" class="toggle" type="checkbox">
+                    <input title="todo item" class="toggle" type="checkbox"  (click)="toggleCompletion(todo.uid)" [checked]="todo.completed">
                     <label>{{todo.title}}</label>
                 </div>
             </li>
