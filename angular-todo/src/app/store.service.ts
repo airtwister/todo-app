@@ -34,4 +34,14 @@ export class TodoStore {
 
         this._updateStore();
     }
+
+    remove(uid: String) {
+        for (const todo of this.todos) {
+            if (todo.uid === uid) {
+                this.todos.splice(this.todos.indexOf(todo), 1);
+                break;
+            }
+        }
+        this._updateStore();
+    }
 }

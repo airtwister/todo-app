@@ -32,4 +32,8 @@ export class TodoListComponent implements OnInit {
     toggleCompletion(uid: String) {
         this.todoStore.toggleCompletion(uid);
     }
+
+    remove(uid: String){
+        this.todoStore.remove(uid);
+    }
 }
