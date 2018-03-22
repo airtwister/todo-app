@@ -1,3 +1,8 @@
-<p>
-  todo-list works!
-</p>
+<section class="todoapp">
+    <header class="header">
+        <h1>{{ title }}</h1>
+        <input class="new-todo" placeholder="What needs to be done?" autofocus="" #newtodo (keyup)="addTodo($event, newtodo)">
+    </header>
+    <footer class="footer">
+    </footer>
+</section>

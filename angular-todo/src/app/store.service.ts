@@ -14,4 +14,13 @@ export class TodoStore {
         this.todos = this.localSt.retrieve('todos') || [];
     }
 
+    _updateStore() {
+        this.localSt.store('todos', this.todos);
+        console.log(this.localSt.retrieve('todos'));
+    }
+
+    add(title: String) {
+        this.todos.push(new Todo(title));
+        this._updateStore();
+    }
 }
