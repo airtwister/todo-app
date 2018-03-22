@@ -11,4 +11,7 @@ export class Todo {
         this.editing = false;
         this.title = title.trim();
     }
+    setTitle(title: String) {
+        this.title = title.trim();
+    }
 }

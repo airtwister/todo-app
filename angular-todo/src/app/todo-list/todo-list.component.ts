@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoStore } from '../store.service';
+import { Todo } from '../todo';
 
 const ENTER_KEY = 13;
 
@@ -39,5 +40,30 @@ export class TodoListComponent implements OnInit {
 
     removeCompleted() {
         this.todoStore.removeCompleted();
+    }
+
+    editTodo(todo: Todo) {
+        todo.editing = true;
+    }
+
+    stopEditing(todo: Todo, editedTitle) {
+        todo.setTitle(editedTitle.value);
+        todo.editing = false;
+    }
+
+    cancelEditingTodo(todo: Todo) {
+        todo.editing = false;
+    }
+
+    updateEditingTodo(editedTitle, todo: Todo) {
+        editedTitle = editedTitle.value.trim();
+        todo.editing = false;
+
+        if (editedTitle.length === 0) {
+            return this.todoStore.remove(todo.uid);
+        }
+
+        todo.setTitle(editedTitle);
+        this.todoStore.updateStorage();
     }
 }

@@ -12,6 +12,18 @@ export class TodoStore {
     constructor() {
         this.localSt = new LocalStorageService();
         this.todos = this.localSt.retrieve('todos') || [];
+        this.normalizeTodos();
+    }
+
+    normalizeTodos() {
+        const cached_todos = this.todos;
+
+        this.todos = cached_todos.map( (todo: {title: String, completed: Boolean, uid: String}) => {
+            const Item = new Todo(todo.title);
+            Item.completed = todo.completed;
+            Item.uid = todo.uid;
+            return Item;
+        });
     }
 
     _updateStore() {
@@ -68,6 +80,10 @@ export class TodoStore {
 
     setAllTo(toggler) {
         this.todos.forEach((t: Todo) => t.completed = toggler.checked);
+        this._updateStore();
+    }
+
+    updateStorage() {
         this._updateStore();
     }
 }
